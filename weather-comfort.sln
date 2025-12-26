@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "weather-comfort.client", "weather-comfort.client\weather-comfort.client.esproj", "{9B90E51D-3616-7FD4-332E-8DF1F5E19178}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "weather-comfort.Server", "weather-comfort.Server\weather-comfort.Server.csproj", "{FF9A090B-6215-46C4-A80A-A447CD8E74EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B90E51D-3616-7FD4-332E-8DF1F5E19178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B90E51D-3616-7FD4-332E-8DF1F5E19178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B90E51D-3616-7FD4-332E-8DF1F5E19178}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9B90E51D-3616-7FD4-332E-8DF1F5E19178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B90E51D-3616-7FD4-332E-8DF1F5E19178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B90E51D-3616-7FD4-332E-8DF1F5E19178}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FF9A090B-6215-46C4-A80A-A447CD8E74EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9A090B-6215-46C4-A80A-A447CD8E74EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9A090B-6215-46C4-A80A-A447CD8E74EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9A090B-6215-46C4-A80A-A447CD8E74EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8743AB04-7FF0-487E-83B1-46CFFA24E697}
+	EndGlobalSection
+EndGlobal
