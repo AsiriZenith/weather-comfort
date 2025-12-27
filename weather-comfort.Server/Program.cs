@@ -1,3 +1,4 @@
+using weather_comfort.Server.Infrastructure;
 using weather_comfort.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,18 @@ builder.Services.AddSwaggerGen();
 
 // Register CityDataService as Singleton since city data doesn't change at runtime
 builder.Services.AddSingleton<ICityDataService, CityDataService>();
+
+// Register HTTP client for OpenWeatherMap API
+builder.Services.AddHttpClient<IOpenWeatherClient, OpenWeatherClient>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30); 
+});
+
+// Register WeatherService as Scoped
+builder.Services.AddScoped<IWeatherService, WeatherService>();
+
+// Register ComfortIndexService as Scoped
+builder.Services.AddScoped<IComfortIndexService, ComfortIndexService>();
 
 var app = builder.Build();
 
