@@ -7,4 +7,12 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\weather-comfort.client\browser\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\core\auth\" />
+    <Folder Include="src\app\core\guards\" />
+    <Folder Include="src\app\core\interceptors\" />
+    <Folder Include="src\app\features\dashboard\" />
+    <Folder Include="src\app\shared\models\" />
+    <Folder Include="src\app\shared\services\" />
+  </ItemGroup>
 </Project>

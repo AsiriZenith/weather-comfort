@@ -1,0 +1,62 @@
+[
+  {
+    "id": 2643743,
+    "name": "London",
+    "countryCode": "GB"
+  },
+  {
+    "id": 1850147,
+    "name": "Tokyo",
+    "countryCode": "JP"
+  },
+  {
+    "id": 2988507,
+    "name": "Paris",
+    "countryCode": "FR"
+  },
+  {
+    "id": 2147714,
+    "name": "Sydney",
+    "countryCode": "AU"
+  },
+  {
+    "id": 4930956,
+    "name": "Boston",
+    "countryCode": "US"
+  },
+  {
+    "id": 1796236,
+    "name": "Shanghai",
+    "countryCode": "CN"
+  },
+  {
+    "id": 3143244,
+    "name": "Oslo",
+    "countryCode": "NO"
+  },
+  {
+    "id": 1248991,
+    "name": "Colombo",
+    "countryCode": "LK"
+  },
+  {
+    "id": 2644210,
+    "name": "Liverpool",
+    "countryCode": "GB"
+  },
+  {
+    "id": 5128581,
+    "name": "New York",
+    "countryCode": "US"
+  },
+  {
+    "id": 1816670,
+    "name": "Beijing",
+    "countryCode": "CN"
+  },
+  {
+    "id": 2950159,
+    "name": "Berlin",
+    "countryCode": "DE"
+  }
+]
