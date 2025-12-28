@@ -29,6 +29,9 @@ builder.Services.AddScoped<IComfortIndexService, ComfortIndexService>();
 // Register RankingService as Scoped
 builder.Services.AddScoped<IRankingService, RankingService>();
 
+// Register DashboardService as Scoped
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+
 // Configure CORS to allow requests from the Angular frontend
 builder.Services.AddCors(options =>
 {

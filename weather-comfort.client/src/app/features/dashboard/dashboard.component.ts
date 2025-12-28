@@ -1,7 +1,7 @@
-import { CommonModule } from "@angular/common";
-import { Component, OnInit, inject } from "@angular/core";
-import { WeatherForecastService } from "../../shared/services";
-import { DashboardCity } from "../../shared/models";
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { WeatherForecastService } from '../../shared/services';
+import { DashboardCity } from '../../shared/models';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,10 +11,10 @@ import { DashboardCity } from "../../shared/models";
   imports: [CommonModule],
 })
 export class DashboardComponent implements OnInit {
-  public cities: DashboardCity[] = [];
-  public isLoading = true;
-  public error: string | null = null;
-  
+  cities = signal<DashboardCity[]>([]);
+  isLoading = signal(false);
+  error = signal<string | null>(null);
+
   #weatherForecastService = inject(WeatherForecastService);
 
   ngOnInit() {
@@ -22,19 +22,19 @@ export class DashboardComponent implements OnInit {
   }
 
   loadDashboardData() {
-    this.isLoading = true;
-    this.error = null;
-    
+    this.isLoading.set(true);
+    this.error.set(null);
+
     this.#weatherForecastService.getDashboardCities().subscribe({
       next: (result) => {
-        this.cities = result;
-        this.isLoading = false;
+        this.cities.set(result);
+        this.isLoading.set(false);
       },
       error: (error) => {
         console.error('Error loading dashboard data:', error);
-        this.error = 'Failed to load dashboard data. Please try again later.';
-        this.isLoading = false;
-      }
+        this.error.set('Failed to load dashboard data. Please try again later.');
+        this.isLoading.set(false);
+      },
     });
   }
 }
