@@ -23,6 +23,9 @@ builder.Services.AddScoped<IWeatherService, WeatherService>();
 // Register ComfortIndexService as Scoped
 builder.Services.AddScoped<IComfortIndexService, ComfortIndexService>();
 
+// Register RankingService as Scoped
+builder.Services.AddScoped<IRankingService, RankingService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
