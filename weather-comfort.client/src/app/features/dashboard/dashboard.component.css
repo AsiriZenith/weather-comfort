@@ -1,0 +1,164 @@
+/* Mobile-first responsive design */
+.dashboard-container {
+  padding: 1rem;
+  max-width: 100%;
+}
+
+.dashboard-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Loading and error states */
+.loading-state,
+.error-state,
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-state p {
+  color: #d32f2f;
+  margin-bottom: 1rem;
+}
+
+.retry-button {
+  padding: 0.5rem 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.retry-button:hover {
+  background-color: #1565c0;
+}
+
+.retry-button:active {
+  background-color: #0d47a1;
+}
+
+/* Cities grid - mobile first (single column) */
+.cities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.city-card {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.city-card:active {
+  transform: scale(0.98);
+}
+
+.city-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.city-name {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.rank-badge {
+  background-color: #1976d2;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.city-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.detail-value {
+  font-weight: 600;
+  color: #333;
+  text-align: right;
+}
+
+.comfort-score {
+  color: #1976d2;
+  font-size: 1.1rem;
+}
+
+/* Tablet and desktop - responsive breakpoints */
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .dashboard-container h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Two columns on tablet */
+  .cities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .city-card {
+    padding: 1.5rem;
+  }
+
+  .city-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .city-card:active {
+    transform: translateY(0);
+  }
+}
+
+/* Desktop - three columns */
+@media (min-width: 1024px) {
+  .cities-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .city-card {
+    padding: 2rem;
+  }
+}

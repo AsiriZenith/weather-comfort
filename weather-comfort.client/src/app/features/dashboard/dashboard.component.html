@@ -1,0 +1,45 @@
+<div class="dashboard-container">
+  <h1>Weather Comfort Dashboard</h1>
+
+  @if(isLoading) {
+    <div class="loading-state">
+      <p>Loading weather data...</p>
+    </div>
+  } @else if(error) {
+    <div class="error-state">
+      <p>{{ error }}</p>
+      <button (click)="loadDashboardData()" class="retry-button">Retry</button>
+    </div>
+  } @else if(cities.length === 0) {
+    <div class="empty-state">
+      <p>No city data available.</p>
+    </div>
+  } @else {
+    <div class="dashboard-content">
+      <div class="cities-grid">
+        @for(city of cities; track city.cityId) {
+          <div class="city-card">
+            <div class="city-header">
+              <h2 class="city-name">{{ city.cityName }}</h2>
+              <span class="rank-badge">#{{ city.rank }}</span>
+            </div>
+            <div class="city-details">
+              <div class="detail-row">
+                <span class="detail-label">Weather:</span>
+                <span class="detail-value">{{ city.description }}</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Temperature:</span>
+                <span class="detail-value">{{ city.temperature | number:'1.1-1' }}°C</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Comfort Index:</span>
+                <span class="detail-value comfort-score">{{ city.comfortIndex | number:'1.1-1' }}</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

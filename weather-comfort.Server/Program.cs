@@ -8,6 +8,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Register IMemoryCache for caching weather data
+builder.Services.AddMemoryCache();
+
 // Register CityDataService as Singleton since city data doesn't change at runtime
 builder.Services.AddSingleton<ICityDataService, CityDataService>();
 
@@ -26,6 +29,18 @@ builder.Services.AddScoped<IComfortIndexService, ComfortIndexService>();
 // Register RankingService as Scoped
 builder.Services.AddScoped<IRankingService, RankingService>();
 
+// Configure CORS to allow requests from the Angular frontend
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("https://127.0.0.1:5899", "https://localhost:5899")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
@@ -36,6 +51,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Enable CORS - must be before UseAuthorization and MapControllers
+app.UseCors("AllowAngularApp");
 
 app.UseAuthorization();
 

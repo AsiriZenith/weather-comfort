@@ -1,4 +1,6 @@
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Moq;
 using weather_comfort.Server.DTOs;
 using weather_comfort.Server.Infrastructure;
@@ -13,6 +15,7 @@ public class WeatherServiceTests
     private readonly Mock<ICityDataService> _mockCityDataService;
     private readonly Mock<IOpenWeatherClient> _mockOpenWeatherClient;
     private readonly Mock<ILogger<WeatherService>> _mockLogger;
+    private readonly IMemoryCache _memoryCache;
     private readonly WeatherService _service;
 
     public WeatherServiceTests()
@@ -20,7 +23,8 @@ public class WeatherServiceTests
         _mockCityDataService = new Mock<ICityDataService>();
         _mockOpenWeatherClient = new Mock<IOpenWeatherClient>();
         _mockLogger = new Mock<ILogger<WeatherService>>();
-        _service = new WeatherService(_mockCityDataService.Object, _mockOpenWeatherClient.Object, _mockLogger.Object);
+        _memoryCache = new MemoryCache(Options.Create(new MemoryCacheOptions()));
+        _service = new WeatherService(_mockCityDataService.Object, _mockOpenWeatherClient.Object, _memoryCache, _mockLogger.Object);
     }
 
     [Fact]
@@ -97,6 +101,9 @@ public class WeatherServiceTests
 
         foreach (var testCase in testCases)
         {
+            // Clear cache before each test case to ensure fresh API call
+            _memoryCache.Remove($"weather:{cityId}");
+            
             var weather = new Weather
             {
                 Main = new MainData

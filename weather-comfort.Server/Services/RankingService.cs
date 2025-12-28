@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Logging;
 using weather_comfort.Server.DTOs;
 
 namespace weather_comfort.Server.Services;
